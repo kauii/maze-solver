@@ -83,14 +83,6 @@ Your task is to create a recursive function to solve a maze represented as a 2D 
 
 The function should recursively search for a path from S to E. If it finds one, it should return the path taken; otherwise, it should indicate no path exists.
 
-### Pass Criteria
-
-1. The problem must be solved using a recursive function.
-2. Path found: The function should return a path from S to E if one exists (if no path exists it should indicate so).
-3. Path Marking: Visited cells along the successful path should be marked.
-4. Flexibility: The function should work for grids with different sizes.
-5. Randomization: The function should work for all random generated grids.
-
 ### Example Maze
 
 Here's an example maze, where ```S``` is at ```(0,0)``` and ```E``` is at ```(2,3)```:
@@ -106,3 +98,20 @@ S * # .
 * * * E
 ```
 where ```*``` marks the path from ```S``` to ```E```.
+
+### Introduction to Haskell
+
+In this pdf file you find anything relevant that helps you to get started and introduces some features that might help you to solve the problem.
+[Click here to view the PDF](Haskell%20Introduction.pdf)
+
+### Pass Criteria
+
+1. The problem must be solved using a recursive function.
+2. Path found: The function should return a path from S to E if one exists (if no path exists it should indicate so).
+3. Path Marking: Visited cells along the successful path should be marked.
+4. Flexibility: The function should work for grids with different sizes.
+5. Randomization: The function should work for all random generated grids.
+
+### Submission
+It suffices to submit the Main.hs and MazeSolver.hs as ZIP file.
+You are also allowed to just submit a link to your git repository if you want to work with git.

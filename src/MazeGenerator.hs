@@ -1,3 +1,5 @@
+-- This module generates a random maze
+-- You must not change anything in this module
 module MazeGenerator (generateRandomMaze) where
 
 import System.Random (randomRIO)

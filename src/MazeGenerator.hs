@@ -7,16 +7,24 @@ type Position = (Int, Int)
 
 generateRandomMaze :: IO Maze
 generateRandomMaze = do
-    let emptyMaze = replicate 3 (replicate 3 '.')
+    numRows <- randomRIO (3, 5)  -- Random number of rows between 3 and 5
+    numCols <- randomRIO (3, 5)  -- Random number of columns between 3 and 5
+    let emptyMaze = replicate numRows (replicate numCols '.')
     mazeWithWalls <- mapM (mapM randomizeCell) emptyMaze
-    let mazeWithStart = setPosition mazeWithWalls (0, 0) 'S'
-    let mazeWithEnd = setPosition mazeWithStart (2, 2) 'E'
+    let start :: Position
+        start = (0, 0)
+    let end :: Position
+        end = (numRows - 1, numCols - 1)
+    let mazeWithStart = setPosition mazeWithWalls start 'S'
+    let mazeWithEnd = setPosition mazeWithStart end 'E'
     return mazeWithEnd
   where
+    randomizeCell :: Char -> IO Char
     randomizeCell '.' = do
-        isWall <- randomRIO (0, 1) :: IO Int
+        isWall <- randomRIO (1, 4) :: IO Int
         return $ if isWall == 1 then '#' else '.'
     randomizeCell cell = return cell
 
+    setPosition :: Maze -> Position -> Char -> Maze
     setPosition maze (x, y) char =
         take x maze ++ [take y (maze !! x) ++ [char] ++ drop (y + 1) (maze !! x)] ++ drop (x + 1) maze

@@ -26,6 +26,7 @@ source-repository head
 library
   exposed-modules:
       MazeGenerator
+      MazeSolver
   other-modules:
       Paths_maze_solver
   autogen-modules:
